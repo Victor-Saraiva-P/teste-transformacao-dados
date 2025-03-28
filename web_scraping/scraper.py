@@ -1,21 +1,41 @@
-import sys
-
-from compressor import compactar_arquivos
-from downloader import baixar_arquivos
-from extractor import extrair_links
 from logger_config import logger
-from siteConnector import entrar_site
+from web_scraping.compressor import compactar_arquivos
+from web_scraping.downloader import baixar_arquivos
+from web_scraping.extractor import extrair_links
+from web_scraping.siteConnector import entrar_site
 
-# Em scraper.py - adicionar try/except na execução principal
-if __name__ == "__main__":
+
+def executar_web_scraping():
+    """
+    Executa o processo completo de web scraping: acessa o site, extrai links,
+    baixa os arquivos e realiza a compactação.
+
+    Returns:
+        bool: True se o processo foi concluído com sucesso, False caso contrário.
+    """
     try:
+        logger.info("Iniciando processo de web scraping")
         pagina_html = entrar_site()
         links = extrair_links(pagina_html)
+
+        if not links:
+            logger.error("Nenhum link encontrado para download.")
+            return False
+
         arquivos_baixados = baixar_arquivos(links)
-        if arquivos_baixados:
-            compactar_arquivos()
-        else:
-            logger.error("Nenhum arquivo foi baixado. Compactação cancelada.")
+
+        if not arquivos_baixados:
+            logger.error("Nenhum arquivo foi baixado.")
+            return False
+
+        arquivo_compactado = compactar_arquivos()
+
+        if not arquivo_compactado:
+            logger.warning("Não foi possível compactar os arquivos, mas os arquivos foram baixados.")
+
+        logger.info("Processo de web scraping concluído com sucesso.")
+        return True
+
     except Exception as e:
-        logger.critical(f"Erro crítico na execução do script: {e}")
-        sys.exit(1)
+        logger.error(f"Erro no processo de web scraping: {e}")
+        return False

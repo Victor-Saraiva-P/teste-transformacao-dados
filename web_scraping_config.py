@@ -34,7 +34,7 @@ REQUEST_TIMEOUT = 30           # Timeout para requisições (em segundos)
 # =============================================================================
 
 # Diretorio raiz do projeto (diretorio pai do diretório atual)
-ROOT_DIR = Path(__file__).parent.parent.absolute()
+ROOT_DIR = Path(__file__).parent.absolute()
 
 # Diretórios para download
 PASTA_DOWNLOADS = os.path.join(ROOT_DIR, 'downloads')   # Pasta base para downloads
@@ -46,7 +46,7 @@ MAX_TENTATIVAS = 3             # Número máximo de tentativas de download
 DELAY_ENTRE_TENTATIVAS = 5     # Delay entre tentativas de download (em segundos)
 
 # Flags de comportamento no download
-LIMPAR_PASTA_DOWNLOADS = False   # Se True, limpa a pasta de downloads antes de iniciar
+LIMPAR_PASTA_DOWNLOADS = True   # Se True, limpa a pasta de downloads antes de iniciar
 SOBRESCREVER_ARQUIVOS = False     # Se True, sobrescreve arquivos existentes
 DOWNLOAD_PARALELO = True         # Se True, realiza downloads em paralelo
 
