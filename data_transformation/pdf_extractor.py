@@ -1,10 +1,10 @@
-import pdfplumber
 from pathlib import Path
-import os
 
-from transformation_config import PAGINA_FINAL, PAGINA_INICIAL
-from web_scraping_config import PASTA_DOWNLOADS, PASTA_ARQUIVOS
+import pdfplumber
+
 from logger_config import logger
+from transformation_config import PAGINA_FINAL, PAGINA_INICIAL, NOME_ARQUIVO_PDF
+from web_scraping_config import PASTA_DOWNLOADS, PASTA_ARQUIVOS
 
 
 def extrair_dados_pdf():
@@ -18,7 +18,7 @@ def extrair_dados_pdf():
     logger.info("Iniciando extração de dados do PDF")
 
     # Caminho para o arquivo PDF do Anexo I
-    caminho_pdf = Path(os.path.join(PASTA_DOWNLOADS, PASTA_ARQUIVOS, "Anexo_I.pdf"))
+    caminho_pdf = Path(PASTA_DOWNLOADS) / PASTA_ARQUIVOS / NOME_ARQUIVO_PDF
     if not caminho_pdf.exists():
         logger.error(f"Arquivo {caminho_pdf} não encontrado.")
         raise FileNotFoundError(f"O arquivo {caminho_pdf} não foi encontrado.")
