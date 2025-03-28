@@ -7,7 +7,7 @@ from pathlib import Path
 import shutil
 import requests
 
-from config import (
+from web_scraping_config import (
     PASTA_DOWNLOADS, SOBRESCREVER_ARQUIVOS, DELAY_ENTRE_REQUESTS,
     REQUEST_TIMEOUT, DOWNLOAD_PARALELO, PASTA_ARQUIVOS, LIMPAR_PASTA_DOWNLOADS,
     MAX_PARALELO, MAX_TENTATIVAS, DELAY_ENTRE_TENTATIVAS

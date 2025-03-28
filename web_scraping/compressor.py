@@ -5,9 +5,9 @@ from pathlib import Path
 
 import py7zr
 
-from config import PASTA_DOWNLOADS, PASTA_ARQUIVOS, FORMATO_COMPACTACAO, NOME_ARQUIVO_COMPACTADO, \
-    SOBRESCREVER_COMPACTACAO
 from logger_config import logger
+from web_scraping_config import PASTA_DOWNLOADS, PASTA_ARQUIVOS, FORMATO_COMPACTACAO, NOME_ARQUIVO_COMPACTADO, \
+    SOBRESCREVER_COMPACTACAO
 
 # Formatos de compactação suportados (RAR removido)
 SUPPORTED_FORMATS = ["zip", "tar", "tar.gz", "tar.bz2", "7z"]
