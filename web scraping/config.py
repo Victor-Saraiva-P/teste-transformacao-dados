@@ -1,3 +1,6 @@
+import os
+from pathlib import Path
+
 # =============================================================================
 # Configurações Gerais
 # =============================================================================
@@ -34,8 +37,11 @@ REQUEST_TIMEOUT = 30           # Timeout para requisições (em segundos)
 # Configurações de Download
 # =============================================================================
 
+# Diretorio raiz do projeto (diretorio pai do diretório atual)
+ROOT_DIR = Path(__file__).parent.parent.absolute()
+
 # Diretórios para download
-PASTA_DOWNLOADS = "downloads"   # Pasta base para downloads
+PASTA_DOWNLOADS = os.path.join(ROOT_DIR, 'downloads')   # Pasta base para downloads
 PASTA_ARQUIVOS = "arquivos"      # Subpasta onde os arquivos serão salvos
 
 # Parâmetros de download
