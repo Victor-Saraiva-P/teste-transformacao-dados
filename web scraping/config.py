@@ -18,10 +18,6 @@ ANEXOS_CONFIG = {
         "patterns": ["anexo i", "anexo_i"],
         "required_extension": ".pdf"
     },
-    "Anexo_II.pdf": {
-        "patterns": ["anexo ii", "anexo_ii"],
-        "required_extension": ".pdf"
-    }
 }
 
 
