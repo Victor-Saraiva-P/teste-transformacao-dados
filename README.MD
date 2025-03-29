@@ -4,8 +4,8 @@
 ![Zipfile](https://img.shields.io/badge/Zipfile-BDBDBD?style=for-the-badge&logo=&logoColor=black)
 # Teste de Transformação de Dados
 
-Este projeto tem como objetivo transformar os dados do PDF do Anexo I (obtido no **[Teste de Web Scraping](https://github.com/Victor-Saraiva-P/teste-web-scraping))** em uma tabela estruturada.
 
+Este projeto transforma dados do PDF do Anexo I (obtido através do [Teste de Web Scraping](https://github.com/Victor-Saraiva-P/teste-web-scraping)) em uma tabela estruturada e organizada.
 ## Stack Utilizada
 
 - **Linguagem:** Python 3
@@ -15,25 +15,43 @@ Este projeto tem como objetivo transformar os dados do PDF do Anexo I (obtido no
   - `zipfile` – Biblioteca padrão do Python para compactação de arquivos.
 - **Outros repositórios**
     - uma adaptação de [Teste de Web Scraping](https://github.com/Victor-Saraiva-P/teste-web-scraping)
+## Funcionalidades
 
-  ## Funcionalidades
+- **Extração de Dados do PDF:**  
+  Utiliza `pdfplumber` para extrair tabelas de dados de procedimentos e eventos em saúde do Anexo I.
 
-- **Extração dos Dados do PDF:**  
-  Utiliza `pdfplumber` para ler todas as páginas do PDF do Anexo I e extrair a tabela com os dados de procedimentos e eventos em saúde.
+- **Transformação Estruturada:**  
+  Organiza os dados em um DataFrame, realiza limpeza e formatação, e substitui abreviações como "OD" (Odontologia) e "AMB" (Ambulatorial) por seus significados completos.
 
-- **Transformação dos Dados:**  
-  Organiza os dados extraídos em um DataFrame do Pandas, realizando limpeza e formatação dos dados, e substitui as abreviações das colunas OD e AMB por suas descrições completas (segundo a legenda no rodapé do PDF).
+- **Exportação para CSV:**  
+  Salva o DataFrame resultante em formato CSV com codificação UTF-8 para preservar caracteres especiais.
 
-- **Exportação e Compactação:**  
-  Salva o DataFrame resultante em formato CSV e, em seguida, compacta o CSV em um arquivo ZIP com o nome `Teste_{seu_nome}.zip`.
+- **Compactação Automática:**  
+  Compacta o CSV gerado em um arquivo ZIP, facilitando o compartilhamento.
 
-- **Logging Detalhado:**  
-  O sistema registra o andamento de cada etapa para facilitar o monitoramento e a depuração.
-## Estrutura do Projeto
+- **Sistema de Logs:**  
+  Fornece logs detalhados de cada etapa do processo para facilitar monitoramento e depuração.
+  ## Estrutura do Projeto
 
-- `downloads` – Pasta onde serão salvos o PDF do Anexo I (em /arquivos) e o arquivo compactado
-- `web_scraping` – Cópia adaptada do código de web scraping original
-- `web_scraping_config.py` – Configurações específicas do web scraping (adaptadas para Anexo I).
+```
+teste-transformacao-dados/
+├── data_transformation/        # Módulos para transformação de dados
+│   ├── compressor.py          # Compactação de arquivos
+│   ├── pdf_extractor.py       # Extração de dados do PDF
+│   ├── to_csv.py              # Conversão para CSV
+│   ├── to_data_frame.py       # Transformação em DataFrame
+│   └── transformation.py      # Processo principal de transformação
+├── web_scraping/              # Módulos para web scraping
+│   ├── downloader.py          # Download de arquivos
+│   ├── extractor.py           # Extração de links
+│   ├── scraper.py             # Processo principal de scraping
+│   └── siteConnector.py       # Conexão com o site
+├── downloads/                 # Pasta onde são salvos os arquivos
+│   └── arquivos/              # PDF do Anexo I e arquivos CSV
+├── config.py                  # Configurações globais
+├── web_scraping_config.py     # Configurações do web scraping
+└── logger_config.py           # Configurações de logging
+```
 ## Rodando Localmente
 
 1. **Clone o Repositório:**
@@ -52,19 +70,18 @@ Este projeto tem como objetivo transformar os dados do PDF do Anexo I (obtido no
    ```
 
 3. **Configure o Sistema (Opcional):**  
-   Edite `config.py` se precisar ajustar os caminhos, nomes de arquivo ou outros parâmetros.
+   Edite `config.py` e `web_scraping_config.py` para ajustar caminhos, nomes de arquivo ou outros parâmetros.
 
-4. **Execute o Script:**
+4. **Execute o Script Principal:**
 
    ```bash
-   python transformador.py
+   python main.py
    ```
 
 5. **Verifique os Resultados:**
-
-   - O CSV com os dados transformados será salvo no diretório configurado.
-   - O arquivo compactado `Teste_{seu_nome}.zip` será gerado conforme o especificado.
-   - Consulte os logs para acompanhar o andamento do processo.
+   - O CSV gerado será salvo no diretório `downloads/arquivos/`
+   - O arquivo ZIP resultante será salvo em `downloads/`
+   - Consulte os logs para acompanhar o processo
 ## 👨‍💻 Autor
 
 Desenvolvido por **[Victor Saraiva](https://github.com/Victor-Saraiva-P)**
