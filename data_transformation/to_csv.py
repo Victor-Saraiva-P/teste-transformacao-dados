@@ -1,8 +1,9 @@
-import pandas as pd
 import logging
 from pathlib import Path
 
-from config import NOME_ARQUIVO_CSV, PASTA_DOWNLOADS
+import pandas as pd
+
+from config import NOME_ARQUIVO_CSV, PASTA_ARQUIVOS, PASTA_DOWNLOADS
 
 logger = logging.getLogger(__name__)
 
@@ -16,7 +17,7 @@ def salvar_csv(df: pd.DataFrame) -> Path:
         Path: Caminho completo do arquivo CSV gerado.
     """
     # Garante que a pasta de destino existe
-    destino = Path(PASTA_DOWNLOADS)
+    destino = Path(PASTA_DOWNLOADS, PASTA_ARQUIVOS)
     destino.mkdir(parents=True, exist_ok=True)
 
     # Constrói o caminho completo do arquivo CSV
