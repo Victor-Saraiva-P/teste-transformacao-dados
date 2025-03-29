@@ -5,7 +5,7 @@ from pathlib import Path
 
 import py7zr
 
-from config import PASTA_DOWNLOADS, PASTA_ARQUIVOS, FORMATO_COMPACTACAO, SOBRESCREVER_COMPACTACAO, \
+from config import PASTA_DOWNLOADS, PASTA_ARQUIVOS_CSV, FORMATO_COMPACTACAO, SOBRESCREVER_COMPACTACAO, \
     NOME_ARQUIVO_COMPACTADO
 from logger_config import logger
 
@@ -14,7 +14,7 @@ SUPPORTED_FORMATS = ["zip", "tar", "tar.gz", "tar.bz2", "7z"]
 
 
 def compactar_arquivos(
-        pasta_origem=os.path.join(PASTA_DOWNLOADS, PASTA_ARQUIVOS),
+        pasta_origem=os.path.join(PASTA_DOWNLOADS, PASTA_ARQUIVOS_CSV),
         pasta_destino=PASTA_DOWNLOADS
 ):
     """

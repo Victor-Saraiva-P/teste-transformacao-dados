@@ -7,12 +7,12 @@ from pathlib import Path
 import shutil
 import requests
 
-from config import PASTA_DOWNLOADS, PASTA_ARQUIVOS, LIMPAR_PASTA_DOWNLOADS, DOWNLOAD_PARALELO, DELAY_ENTRE_REQUESTS, \
+from config import PASTA_DOWNLOADS, PASTA_ARQUIVOS_PDF, LIMPAR_PASTA_DOWNLOADS, DOWNLOAD_PARALELO, DELAY_ENTRE_REQUESTS, \
     SOBRESCREVER_ARQUIVOS, MAX_TENTATIVAS, REQUEST_TIMEOUT, DELAY_ENTRE_TENTATIVAS, MAX_PARALELO
 from logger_config import logger
 
 
-def baixar_arquivos(links_arquivos, pasta_destino=os.path.join(PASTA_DOWNLOADS, PASTA_ARQUIVOS)):
+def baixar_arquivos(links_arquivos, pasta_destino=os.path.join(PASTA_DOWNLOADS, PASTA_ARQUIVOS_PDF)):
     """
     Função principal que baixa arquivos com base na configuração de paralelismo.
     Se LIMPAR_PASTA_DOWNLOADS for True, apaga o conteúdo da pasta principal (PASTA_DOWNLOADS)

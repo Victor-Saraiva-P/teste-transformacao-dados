@@ -3,7 +3,7 @@ from pathlib import Path
 import pdfplumber
 
 from logger_config import logger
-from config import PAGINA_FINAL, PAGINA_INICIAL, NOME_ARQUIVO_PDF, PASTA_DOWNLOADS, PASTA_ARQUIVOS
+from config import PAGINA_FINAL, PAGINA_INICIAL, NOME_ARQUIVO_PDF, PASTA_DOWNLOADS, PASTA_ARQUIVOS_PDF
 
 
 def extrair_dados_pdf():
@@ -17,7 +17,7 @@ def extrair_dados_pdf():
     logger.info("Iniciando extração de dados do PDF")
 
     # Caminho para o arquivo PDF do Anexo I
-    caminho_pdf = Path(PASTA_DOWNLOADS) / PASTA_ARQUIVOS / NOME_ARQUIVO_PDF
+    caminho_pdf = Path(PASTA_DOWNLOADS) / PASTA_ARQUIVOS_PDF / NOME_ARQUIVO_PDF
     if not caminho_pdf.exists():
         logger.error(f"Arquivo {caminho_pdf} não encontrado.")
         raise FileNotFoundError(f"O arquivo {caminho_pdf} não foi encontrado.")

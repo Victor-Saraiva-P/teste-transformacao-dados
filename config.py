@@ -35,7 +35,8 @@ REQUEST_TIMEOUT = 30           # Timeout para requisições (em segundos)
 
 # Diretórios para download
 PASTA_DOWNLOADS = os.path.join(ROOT_DIR, 'downloads')   # Pasta base para downloads
-PASTA_ARQUIVOS = "arquivos"      # Subpasta onde os arquivos serão salvos
+PASTA_ARQUIVOS_PDF = "pdf"      # Subpasta onde os arquivos serão salvos
+PASTA_ARQUIVOS_CSV = "csv"          # Subpasta onde os anexos serão salvos
 
 # Parâmetros de download
 MAX_PARALELO = 2               # Número máximo de downloads paralelos
@@ -53,7 +54,7 @@ DOWNLOAD_PARALELO = True         # Se True, realiza downloads em paralelo
 
 SOBRESCREVER_COMPACTACAO = False  # Se True, sobrescreve arquivo compactado existente
 FORMATO_COMPACTACAO = "zip"      # Formato de compactação: opções suportadas ("zip", "tar", "tar.gz", "tar.bz2", "7z")
-NOME_ARQUIVO_COMPACTADO = "anexos"  # Nome base para o arquivo compactado
+NOME_ARQUIVO_COMPACTADO = "Teste_Victor_Alexandre_Saraiva_Pimentel"  # Nome base para o arquivo compactado
 
 # =============================================================================
 # Configurações de Transformação de Dados

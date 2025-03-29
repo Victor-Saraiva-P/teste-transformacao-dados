@@ -1,3 +1,4 @@
+from data_transformation.compressor import compactar_arquivos
 from data_transformation.pdf_extractor import extrair_dados_pdf
 from data_transformation.to_csv import salvar_csv
 from data_transformation.to_data_frame import transformar_dados_data_frame
@@ -28,7 +29,7 @@ def executar_data_transformation():
 
         salvar_csv(dados_data_frame)
 
-        # TODO: compactar csv
+        compactar_arquivos()
 
         logger.info("Processo de web scraping concluído com sucesso.")
         return True

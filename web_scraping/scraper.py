@@ -1,5 +1,4 @@
 from logger_config import logger
-from web_scraping.compressor import compactar_arquivos
 from web_scraping.downloader import baixar_arquivos
 from web_scraping.extractor import extrair_links
 from web_scraping.siteConnector import entrar_site
@@ -28,12 +27,6 @@ def executar_web_scraping():
             logger.error("Nenhum arquivo foi baixado.")
             return False
 
-        arquivo_compactado = compactar_arquivos()
-
-        if not arquivo_compactado:
-            logger.warning("Não foi possível compactar os arquivos, mas os arquivos foram baixados.")
-
-        logger.info("Processo de web scraping concluído com sucesso.")
         return True
 
     except Exception as e:
