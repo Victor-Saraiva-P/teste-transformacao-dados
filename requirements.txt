@@ -3,3 +3,4 @@ beautifulsoup4>=4.13.3
 lxml>=5.3.1
 py7zr>=0.22.0
 pdfplumber>=0.11.6
+pandas>=2.2.3
