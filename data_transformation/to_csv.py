@@ -2,8 +2,7 @@ import pandas as pd
 import logging
 from pathlib import Path
 
-from transformation_config import NOME_ARQUIVO_CSV
-from web_scraping_config import PASTA_DOWNLOADS
+from config import NOME_ARQUIVO_CSV, PASTA_DOWNLOADS
 
 logger = logging.getLogger(__name__)
 
@@ -13,8 +12,6 @@ def salvar_csv(df: pd.DataFrame) -> Path:
 
     Args:
         df (pd.DataFrame): DataFrame contendo os dados transformados.
-        pasta_destino (str): Diretório onde o arquivo será salvo. Padrão é 'downloads'.
-
     Returns:
         Path: Caminho completo do arquivo CSV gerado.
     """

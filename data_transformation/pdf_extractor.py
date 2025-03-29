@@ -3,8 +3,7 @@ from pathlib import Path
 import pdfplumber
 
 from logger_config import logger
-from transformation_config import PAGINA_FINAL, PAGINA_INICIAL, NOME_ARQUIVO_PDF
-from web_scraping_config import PASTA_DOWNLOADS, PASTA_ARQUIVOS
+from config import PAGINA_FINAL, PAGINA_INICIAL, NOME_ARQUIVO_PDF, PASTA_DOWNLOADS, PASTA_ARQUIVOS
 
 
 def extrair_dados_pdf():

@@ -2,7 +2,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-from web_scraping_config import URL_BASE_ANS, REQUEST_TIMEOUT, DELAY_ENTRE_REQUESTS
+from config import REQUEST_TIMEOUT, URL_BASE_ANS, DELAY_ENTRE_REQUESTS
 from logger_config import logger
 
 

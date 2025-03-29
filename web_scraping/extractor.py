@@ -1,5 +1,5 @@
+from config import ANEXOS_CONFIG
 from logger_config import logger
-from web_scraping_config import ANEXOS_CONFIG
 
 
 def extrair_links(html_soup):

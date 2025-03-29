@@ -1,6 +1,6 @@
 import pandas as pd
 
-from transformation_config import HEADER_CSV
+from config import HEADER_CSV
 
 
 def transformar_dados_data_frame(dados_pdf):
