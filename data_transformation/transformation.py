@@ -15,7 +15,7 @@ def executar_data_transformation():
     """
 
     try:
-        logger.info("Iniciando processo de Transformação de dados")
+        logger.info("Iniciando processo de transformação de dados")
 
         # Extrai os dados do PDF
         dados_pdf = extrair_dados_pdf()
@@ -25,13 +25,24 @@ def executar_data_transformation():
             return False
 
         # Transforma os dados extraídos em um DataFrame estruturado
-        dados_data_frame= transformar_dados_data_frame(dados_pdf)
+        logger.info("Transformando dados em DataFrame estruturado")
+        dados_data_frame = transformar_dados_data_frame(dados_pdf)
 
-        salvar_csv(dados_data_frame)
+        # Salva o DataFrame em CSV
+        caminho_csv = salvar_csv(dados_data_frame)
+        if not caminho_csv:
+            logger.error("Falha ao salvar o arquivo CSV.")
+            return False
 
-        compactar_arquivos()
+        # Compacta o arquivo CSV
+        logger.info("Compactando arquivos gerados")
+        caminho_compactado = compactar_arquivos()
+        if not caminho_compactado:
+            logger.warning("Não foi possível compactar os arquivos, mas o CSV foi gerado.")
+        else:
+            logger.info(f"Arquivo compactado gerado em: {caminho_compactado}")
 
-        logger.info("Processo de web scraping concluído com sucesso.")
+        logger.info("Processo de transformação de dados concluído com sucesso.")
         return True
 
     except Exception as e:
