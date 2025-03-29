@@ -1,4 +1,6 @@
 from data_transformation.pdf_extractor import extrair_dados_pdf
+from data_transformation.to_csv import salvar_csv
+from data_transformation.to_data_frame import transformar_dados_data_frame
 from logger_config import logger
 
 
@@ -13,12 +15,18 @@ def executar_data_transformation():
 
     try:
         logger.info("Iniciando processo de Transformação de dados")
-        # TODO: extrair dados
-        dados_pdf = extrair_dados_pdf()
-        print(dados_pdf)
-        # TODO: transformar dados
 
-        # TODO: salvar csv
+        # Extrai os dados do PDF
+        dados_pdf = extrair_dados_pdf()
+
+        if not dados_pdf:
+            logger.error("Nenhum dado extraído do PDF.")
+            return False
+
+        # Transforma os dados extraídos em um DataFrame estruturado
+        dados_data_frame= transformar_dados_data_frame(dados_pdf)
+
+        salvar_csv(dados_data_frame)
 
         # TODO: compactar csv
 
